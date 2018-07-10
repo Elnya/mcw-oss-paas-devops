@@ -6,17 +6,17 @@ spec:
   replicas: 1
 template:
   metadata:
-  labels:
-    app: best-for-you-organics
-spec:
-  containers:
-  - name: best-for-you-organics
-    image: bestforyouregistryoss.azurecr.io/best-for-you-organics:v1
-    ports:
-    - containerPort: 3000
-    env:
-    - name: NODE_ENV
-      value: "production"
+    labels:
+      app: best-for-you-organics
+  spec:
+    containers:
+    - name: best-for-you-organics
+      image: bestforyouregistryoss.azurecr.io/best-for-you-organics:v1
+      ports:
+      - containerPort: 3000
+      env:
+      - name: NODE_ENV
+        value: "production"
 ---
 apiVersion: v1
 kind: Service
