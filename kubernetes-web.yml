@@ -4,50 +4,27 @@ metadata:
   name: best-for-you-organics
 spec:
   replicas: 1
-  template:
-
-metadata:
-
-labels:
-
-app: best-for-you-organics
-
+template:
+  metadata:
+  labels:
+    app: best-for-you-organics
 spec:
-
-containers:
-
-- name: best-for-you-organics
-
-image: bestforyouregistryoss.azurecr.io/best-for-you-organics:v1
-
-ports:
-
-- containerPort: 3000
-
-env:
-
-- name: NODE_ENV
-
-value: "production"
-
+  containers:
+  - name: best-for-you-organics
+    image: bestforyouregistryoss.azurecr.io/best-for-you-organics:v1
+    ports:
+    - containerPort: 3000
+    env:
+      - name: NODE_ENV
+      value: "production"
 ---
-
 apiVersion: v1
-
 kind: Service
-
 metadata:
-
-name: best-for-you-organics
-
+  name: best-for-you-organics
 spec:
-
-type: LoadBalancer
-
-ports:
-
-- port: 3000
-
-selector:
-
-app: best-for-you-organics 
+  type: LoadBalancer
+  ports:
+  - port: 3000
+  selector:
+    app: best-for-you-organics
